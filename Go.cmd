@@ -73,8 +73,6 @@ if exist ..\git (
     set "Path=%~dp0git\bin;%Path%"
 )
 
-git clone --recursive https://github.com/bmaltais/kohya_ss.git
-
 :: get kohya_ss ready
 if not exist kohya_ss (
 	if "%date:~10,4%"=="2025" (
@@ -87,5 +85,7 @@ if not exist kohya_ss (
 		popd
 	)
 )
-
-call kohya_ss\gui.bat
+pushd kohya_ss &&(
+	call gui.bat
+	popd
+)
