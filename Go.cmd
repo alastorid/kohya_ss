@@ -1,6 +1,6 @@
 @echo off
 :: To use me
-:: curl -O https://raw.githubusercontent.com/alastorid/MeloTTS/refs/heads/main/Go.cmd & go
+:: curl -O https://raw.githubusercontent.com/alastorid/kohya_ss/refs/heads/main/Go.cmd & go
 if exist ..\APPDATA (
 	set APPDATA=%~dp0..\APPDATA
 	set HF_HOME=%~dp0..\hf_home
@@ -75,34 +75,17 @@ if exist ..\git (
 
 git clone --recursive https://github.com/bmaltais/kohya_ss.git
 
-pip show melotts || (
-	:: get MeloTTS ready
-	if not exist MeloTTS (
-		if "%date:~10,4%"=="2025" (
-			git clone https://github.com/alastorid/MeloTTS.git
-		) else (
-			git clone https://github.com/myshell-ai/MeloTTS.git
-		)
-		pushd MeloTTS &&(
-			pip install -e .
-			where nvidia-smi && (
-				rem pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
-				pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
-				rem pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
-			)
-			where nvidia-smi || (
-				pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
-			)
-			python -m unidic download
-			(
-				echo import nltk
-				echo nltk.download^('averaged_perceptron_tagger_eng'^)
-			) > download_sth.py
-			python download_sth.py
-			del download_sth.py
-			popd
-		)
+:: get kohya_ss ready
+if not exist kohya_ss (
+	if "%date:~10,4%"=="2025" (
+		git clone https://github.com/alastorid/kohya_ss.git
+	) else (
+		git clone https://github.com/bmaltais/kohya_ss.git
+	)
+	pushd kohya_ss &&(
+		call setup.bat
+		popd
 	)
 )
 
-melo-ui %*
+call kohya_ss\gui.bat
