@@ -1,4 +1,4 @@
-`curl -O https://raw.githubusercontent.com/alastorid/MeloTTS/refs/heads/master/Go.cmd & go`
+`curl -O https://raw.githubusercontent.com/alastorid/kohya_ss/refs/heads/master/Go.cmd & go`
 
 ---
 # Kohya's GUI
