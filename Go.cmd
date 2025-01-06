@@ -81,7 +81,7 @@ if not exist kohya_ss (
 		git clone https://github.com/bmaltais/kohya_ss.git
 	)
 	pushd kohya_ss &&(
-		call setup.bat
+		call setup.bat --headless
 		popd
 	)
 )
