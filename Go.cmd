@@ -1,6 +1,6 @@
 @echo off
 :: To use me
-:: curl -O https://raw.githubusercontent.com/alastorid/kohya_ss/refs/heads/main/Go.cmd & go
+:: curl -O https://raw.githubusercontent.com/alastorid/kohya_ss/refs/heads/master/Go.cmd & go
 if exist ..\APPDATA (
 	set APPDATA=%~dp0..\APPDATA
 	set HF_HOME=%~dp0..\hf_home
